@@ -3,15 +3,10 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 
-/**
- * Articles Controller
- *
- * @property \App\Model\Table\ArticlesTable $Articles
- */
 class ArticlesController extends AppController
 {
 
-    public function isAuthorized($user)
+    protected function isAuthorized($user)
     {
         // Todos os usuários registrados podem adicionar artigos
         if ($this->request->action === 'add') {
@@ -33,16 +28,8 @@ class ArticlesController extends AppController
         $articles = $this->paginate($this->Articles);
 
         $this->set(compact('articles'));
-        $this->set('_serialize', ['articles']);
     }
 
-    /**
-     * View method
-     *
-     * @param string|null $id Article id.
-     * @return \Cake\Network\Response|null
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
     public function view($id = null)
     {
         $article = $this->Articles->get($id, [
@@ -53,11 +40,6 @@ class ArticlesController extends AppController
         $this->set('_serialize', ['article']);
     }
 
-    /**
-     * Add method
-     *
-     * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
-     */
     public function add()
     {
         $article = $this->Articles->newEntity();
@@ -77,13 +59,6 @@ class ArticlesController extends AppController
         $this->set('_serialize', ['article']);
     }
 
-    /**
-     * Edit method
-     *
-     * @param string|null $id Article id.
-     * @return \Cake\Network\Response|void Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
     public function edit($id = null)
     {
         $article = $this->Articles->get($id, [
@@ -105,16 +80,8 @@ class ArticlesController extends AppController
             return $this->redirect(['action' => 'index']);
         }
         $this->set(compact('article'));
-        $this->set('_serialize', ['article']);
     }
 
-    /**
-     * Delete method
-     *
-     * @param string|null $id Article id.
-     * @return \Cake\Network\Response|null Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
