@@ -1,25 +1,28 @@
-# CakePHP Application Skeleton
+# Blog-CakePHP-Brasil
 
-[![Build Status](https://img.shields.io/travis/cakephp/app/master.svg?style=flat-square)](https://travis-ci.org/cakephp/app)
-[![License](https://img.shields.io/packagist/l/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
+O Git com o projeto https://github.com/guienoc/Blog-CakePHP-Brasil está pronto, por este link você poderá acompanhar e contribuir.
 
-A skeleton for creating applications with [CakePHP](http://cakephp.org) 3.x.
+Pense em algo novo, funcional, e de grande necessidade para o usuário. SE você precisar de ajuda para definir algo para desenvolver, antes de sair desenvolvendo você pode interagir conosco sobre isso, assim podemos com idéias te ajudar a iniciar essa necessidade. E.. para isso criamos um grupo que é específico para este projeto.
 
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
+Espero você lá tbm:
+https://www.facebook.com/groups/BlogCakeBrasil
 
-## Installation
+BORA VIRAR O JOGO!
 
-1. Download [Composer](http://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
+[Por Que Um Blog?] Porque é fácil rápido e muito útil para qualquer site se permanecer em um orgânico do Google por exemplo. Isso é Gatilho, para chamar a atenção de programadores de outros FW e também de novos programadores.
 
-If Composer is installed globally, run
-```bash
-composer create-project --prefer-dist cakephp/app [app_name]
-```
+[O Que Vamos Buscar?] Entre todos os benefícios didáticos de aprendizados A-V-A-N-Ç-A-D-O em CakePHP. Buscamos contribuir com uma sequencia de mini-projetos (interessado?), para que você possa re-utilizar em projetos particulares comerciais. Entendemos que a comunidade unida irá produzir um ATIVO.
 
-You should now be able to visit the path to where you installed the app and see the default home page.
+[Como Vamos Conseguir Isso?] Vamos a partir do Blog, incluir Helpers como Ck Helper, Youtube Helper, Aplicações de Layout (Template), PODEREMOS ATÉ FAZER UM SISTEMA DE BLOGS do TIPO BLOGGER (isso é se houver contribuições para isso) e muito mais, e porque não com a afinidade, MUDAR A DIREÇÃO
 
-## Configuration
+{O que você gostaria de ver para ser desenvolvido?}
 
-Read and edit `config/app.php` and setup the 'Datasources' and any other
-configuration relevant for your application.
+
+##Como contribuir
+
+1. Faça um fork
+2. Clone o projeto para seu ambiente
+3. Composer install, para atualizar as dependencias
+4. Rode as migrations (bin/cake migrations migrate)
+5. Rode as seeds (bin/cake migrations seed)
+6. Altere e mande pull requests!!!

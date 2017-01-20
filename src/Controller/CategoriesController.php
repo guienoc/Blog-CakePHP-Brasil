@@ -3,19 +3,9 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 
-/**
- * Categories Controller
- *
- * @property \App\Model\Table\CategoriesTable $Categories
- */
 class CategoriesController extends AppController
 {
 
-    /**
-     * Index method
-     *
-     * @return \Cake\Network\Response|null
-     */
     public function index()
     {
         $this->paginate = [
@@ -24,16 +14,8 @@ class CategoriesController extends AppController
         $categories = $this->paginate($this->Categories);
 
         $this->set(compact('categories'));
-        $this->set('_serialize', ['categories']);
     }
 
-    /**
-     * View method
-     *
-     * @param string|null $id Category id.
-     * @return \Cake\Network\Response|null
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
     public function view($id = null)
     {
         $category = $this->Categories->get($id, [
@@ -41,14 +23,8 @@ class CategoriesController extends AppController
         ]);
 
         $this->set('category', $category);
-        $this->set('_serialize', ['category']);
     }
 
-    /**
-     * Add method
-     *
-     * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
-     */
     public function add()
     {
         $category = $this->Categories->newEntity();
@@ -64,16 +40,8 @@ class CategoriesController extends AppController
         }
         $parentCategories = $this->Categories->ParentCategories->find('list', ['limit' => 200]);
         $this->set(compact('category', 'parentCategories'));
-        $this->set('_serialize', ['category']);
     }
 
-    /**
-     * Edit method
-     *
-     * @param string|null $id Category id.
-     * @return \Cake\Network\Response|void Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
     public function edit($id = null)
     {
         $category = $this->Categories->get($id, [
@@ -91,7 +59,6 @@ class CategoriesController extends AppController
         }
         $parentCategories = $this->Categories->ParentCategories->find('list', ['limit' => 200]);
         $this->set(compact('category', 'parentCategories'));
-        $this->set('_serialize', ['category']);
     }
 
     public function moveUp($id = null)
@@ -118,13 +85,6 @@ class CategoriesController extends AppController
         return $this->redirect($this->referer(['action' => 'index']));
     }
 
-    /**
-     * Delete method
-     *
-     * @param string|null $id Category id.
-     * @return \Cake\Network\Response|null Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
@@ -134,7 +94,6 @@ class CategoriesController extends AppController
         } else {
             $this->Flash->error(__('The category could not be deleted. Please, try again.'));
         }
-
         return $this->redirect(['action' => 'index']);
     }
 }
