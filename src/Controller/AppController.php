@@ -44,15 +44,25 @@ class AppController extends Controller
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
+            'authorize' => ['Controller'],
+            'loginAction' => [
+                'prefix' => 'painel',
+                'controller' => 'Users',
+                'action' => 'login',
+            ],
             'loginRedirect' => [
-                'controller' => 'Articles',
-                'action' => 'index'
+                'prefix' => 'painel',
+                'controller' => 'Dashboard',
+                'action' => 'index',
             ],
             'logoutRedirect' => [
-                'controller' => 'Pages',
-                'action' => 'display',
-                'home'
-            ]
+                'prefix' => 'painel',
+                'controller' => 'Users',
+                'action' => 'login',
+            ],
+            'unauthorizedRedirect' => false,
+            'authError' => __('Você precisa estar logado para acessar esta página'),
+            'storage' => 'Session',
         ]);
 
         /*
@@ -76,7 +86,7 @@ class AppController extends Controller
     public function beforeFilter(Event $event)
     {
         $this->Auth->allow(['index', 'view', 'display']);
-    } 
+    }
 
     /**
      * Before render callback.
@@ -86,7 +96,7 @@ class AppController extends Controller
      */
     public function beforeRender(Event $event)
     {
-        
+
 
         if (!array_key_exists('_serialize', $this->viewVars) &&
             in_array($this->response->type(), ['application/json', 'application/xml'])
