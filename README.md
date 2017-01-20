@@ -23,6 +23,6 @@ BORA VIRAR O JOGO!
 1. Faça um fork
 2. Clone o projeto para seu ambiente
 3. Composer install, para atualizar as dependencias
-4. Rode as migrations 
-5. Rode as seeds
+4. Rode as migrations (bin/cake migrations migrate)
+5. Rode as seeds (bin/cake migrations seed)
 6. Altere e mande pull requests!!!
