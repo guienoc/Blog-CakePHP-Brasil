@@ -6,7 +6,7 @@ use App\Controller\AppController;
 class ArticlesController extends AppController
 {
 
-    protected function isAuthorized($user)
+    public function isAuthorized($user)
     {
         // Todos os usuários registrados podem adicionar artigos
         if ($this->request->action === 'add') {
