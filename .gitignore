@@ -2,3 +2,5 @@
 /config/app.php
 /tmp/*
 /logs/*
+/config/Seeds/UsersSeed.php
+/config/Migrations/schema-dump-default.lock
