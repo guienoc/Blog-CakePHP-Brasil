@@ -26,3 +26,7 @@ BORA VIRAR O JOGO!
 4. Rode as migrations (bin/cake migrations migrate)
 5. Rode as seeds (bin/cake migrations seed)
 6. Altere e mande pull requests!!!
+
+##Testes
+
+1.Agora é possível rodar testes, no diretório do projeto basta rodar (vendor/bin/phpunit)
