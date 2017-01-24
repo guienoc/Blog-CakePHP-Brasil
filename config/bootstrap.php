@@ -188,8 +188,12 @@ Request::addDetector('tablet', function ($request) {
  */
 Type::build('time')
     ->useImmutable();
+
+// para ficar no padrao brasileiro
 Type::build('date')
-    ->useImmutable();
+    ->useLocaleParser()
+    ->setLocaleFormat('dd/MM/yyyy');
+
 Type::build('datetime')
     ->useImmutable();
 

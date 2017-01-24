@@ -13,23 +13,6 @@ class ArticlesController extends AppController
         parent::beforeFilter($event);
     }
 
-    public function isAuthorized($user)
-    {
-        // Todos os usuários registrados podem adicionar artigos
-        if ($this->request->action === 'add') {
-            return true;
-        }
-
-        // Apenas o proprietário do artigo pode editar e excluí
-        if (in_array($this->request->action, ['edit', 'delete'])) {
-            $articleId = (int)$this->request->params['pass'][0];
-            if ($this->Articles->isOwnedBy($articleId, $user['id'])) {
-                return true;
-            }
-        }
-        return parent::isAuthorized($user);
-    }
-
     public function index()
     {
         $articles = $this->paginate($this->Articles);

@@ -8,11 +8,7 @@ class CategoriesController extends AppController
 
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['ParentCategories']
-        ];
-        $categories = $this->paginate($this->Categories);
-
+        $categories = $this->Categories->find('treeList',['spacer'=>'> '])->toArray();
         $this->set(compact('categories'));
     }
 
