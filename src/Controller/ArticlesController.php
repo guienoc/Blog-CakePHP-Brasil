@@ -2,9 +2,16 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 class ArticlesController extends AppController
 {
+
+    public function beforeFilter(Event $event)
+    {
+        $this->Auth->allow();
+        parent::beforeFilter($event);
+    }
 
     public function isAuthorized($user)
     {

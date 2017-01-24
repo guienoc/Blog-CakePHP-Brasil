@@ -1,10 +1,10 @@
 <?php
-namespace App\Controller\Painel;
+namespace App\Controller\Admin;
 
 use App\Controller\AppController;
-
 class ArticlesController extends AppController
 {
+
 
     public function isAuthorized($user)
     {
