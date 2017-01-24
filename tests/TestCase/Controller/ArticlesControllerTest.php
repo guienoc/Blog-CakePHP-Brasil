@@ -16,7 +16,7 @@ class ArticlesControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.articles'
+        'app.articles',
     ];
 
     /**
@@ -26,7 +26,8 @@ class ArticlesControllerTest extends IntegrationTestCase
      */
     public function testIndex()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->get('/articles');
+        $this->assertResponseOk();
     }
 
     /**
@@ -36,8 +37,10 @@ class ArticlesControllerTest extends IntegrationTestCase
      */
     public function testView()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->get('/articles/view/1');
+        $this->assertResponseOk();
     }
+
 
     /**
      * Test add method
@@ -46,7 +49,8 @@ class ArticlesControllerTest extends IntegrationTestCase
      */
     public function testAdd()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->get('/articles/add');
+        $this->assertResponseError();
     }
 
     /**
@@ -56,7 +60,8 @@ class ArticlesControllerTest extends IntegrationTestCase
      */
     public function testEdit()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->get('/articles/edit/1');
+        $this->assertResponseError();
     }
 
     /**
@@ -66,6 +71,9 @@ class ArticlesControllerTest extends IntegrationTestCase
      */
     public function testDelete()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+
+        $this->post('/articles/delete/1');
+        $this->assertResponseError();
     }
+
 }
